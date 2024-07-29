@@ -29,7 +29,7 @@ export default function Home() {
 						<button className="rounded-link table-link nowrap" onClick={onDownloadClick}>Download 1D6 (Desktop Only!)</button>
 					}
 					<div className="spacer px15" />
-					<Link className="rounded-link table-link nowrap" to="/wiki">Modding and Addon Docs</Link>
+					<Link className="rounded-link table-link nowrap" to="/wiki/">Modding and Addon Docs</Link>
 					{isDownloadVisible && (
 						<DownloadInterface isDesktop={isDesktopDevice} isDownloadVisible={isDownloadVisible} onDownloadClick={onDownloadClick} />
 					)}
