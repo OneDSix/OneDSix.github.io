@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-//@ts-expect-error
-import { ReactComponent as OneDSixSVG } from "../../1d6.svg";
 import "../../style.scss";
 import "./home.scss"
 import useDeviceType from "../../lib/device.tsx";
@@ -47,18 +45,9 @@ export default function Home() {
 
 				<h2>Best Mods</h2>
 				<div className="content adjustable-flex">
-					<div>
-						<a href="">cccc</a>
-						<br />
-					</div><br />
-					<div>
-						<a href="">bbbb</a>
-						<br />
-					</div><br />
-					<div>
-						<a href="">aaaa</a>
-						<br />
-					</div><br />
+					{
+
+					}
 				</div>
 				<div className="spacer px15" />
 				<Link className="rounded-link normal-link nowrap" to="/mods">More Mods</Link>
