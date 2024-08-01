@@ -5,6 +5,7 @@ import "../style.scss"
 import useDeviceType from "../lib/device"
 import DownloadInterface, { useDownloadToggle } from "../lib/download"
 import Blackbox from "../lib/blackbox"
+import Icon from "../assets/icon.png"
 
 export default function Home() {
 	const isDesktopDevice = useDeviceType()
@@ -14,22 +15,22 @@ export default function Home() {
 		<main>
 			<Blackbox on={isDownloadVisible} />
 			<div className="face">
+				{isDownloadVisible && (
+					<DownloadInterface isDesktop={isDesktopDevice} isDownloadVisible={isDownloadVisible} onDownloadClick={onDownloadClick} />
+				)}
 				<div>
 					<h1 className="title">1D6</h1>
 					<img
 					className="logo"
-					src="https://raw.githubusercontent.com/OneDSix/onedsix/main/src/main/resources/assets/icon_large.png"
+					src={Icon}
 					alt="1D6 Logo"></img>
 					<p className="nowrap">The Modding Focused RPG Engine</p>
 					{ isDesktopDevice ?
-						<button className="rounded-link table-link nowrap" onClick={onDownloadClick}>Download 1D6 Alpha 0.1</button> :
+						<button className="rounded-link table-link nowrap" onClick={onDownloadClick}>Download 1D6</button> :
 						<button className="rounded-link table-link nowrap" onClick={onDownloadClick}>Download 1D6 (Desktop Only!)</button>
 					}
 					<div className="spacer px15" />
 					<Link className="rounded-link table-link nowrap" to="/wiki">Modding and Addon Docs</Link>
-					{isDownloadVisible && (
-						<DownloadInterface isDesktop={isDesktopDevice} isDownloadVisible={isDownloadVisible} onDownloadClick={onDownloadClick} />
-					)}
 				</div>
 			</div>
 			<div>
