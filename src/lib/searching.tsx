@@ -1,7 +1,7 @@
 import React from 'react'
-import getFromUrl from "./get.tsx";
+import getFromUrl from "./get";
 import { useQuery } from '@tanstack/react-query';
-import Contentful from './contentful.tsx';
+import Contentful from './contentful';
 
 const searchUrl = ""
 
