@@ -1,20 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from "react"
+import { Link, HeadFC } from "gatsby"
 
-import "../../style.scss";
-import "./home.scss"
-import useDeviceType from "../../lib/device.tsx";
-import DownloadInterface, { useDownloadToggle } from "../../lib/download.tsx";
-import Blackbox from "../../lib/blackbox.tsx";
+import "../style.scss"
+import useDeviceType from "../lib/device"
+import DownloadInterface, { useDownloadToggle } from "../lib/download"
+import Blackbox from "../lib/blackbox"
 
 export default function Home() {
 	const isDesktopDevice = useDeviceType()
 	const {isDownloadVisible, onDownloadClick} = useDownloadToggle()
 
 	return (
-		<div className="home-page">
+		<main>
 			<Blackbox on={isDownloadVisible} />
-			<div className="home-face">
+			<div className="face">
 				<div>
 					<h1 className="title">1D6</h1>
 					<img
@@ -27,13 +26,13 @@ export default function Home() {
 						<button className="rounded-link table-link nowrap" onClick={onDownloadClick}>Download 1D6 (Desktop Only!)</button>
 					}
 					<div className="spacer px15" />
-					<Link className="rounded-link table-link nowrap" to="/wiki/">Modding and Addon Docs</Link>
+					<Link className="rounded-link table-link nowrap" to="/wiki">Modding and Addon Docs</Link>
 					{isDownloadVisible && (
 						<DownloadInterface isDesktop={isDesktopDevice} isDownloadVisible={isDownloadVisible} onDownloadClick={onDownloadClick} />
 					)}
 				</div>
 			</div>
-			<div className="home-content">
+			<div>
 				<h2>Newest News</h2>
 				<div className="content adjustable-flex">
 					{
@@ -41,7 +40,7 @@ export default function Home() {
 					}
 				</div>
 				<div className="spacer px15" />
-				<Link className="rounded-link normal-link nowrap" to="/updates">More News</Link>
+				<Link className="rounded-link normal-link nowrap" to="/news">More News</Link>
 
 				<h2>Best Mods</h2>
 				<div className="content adjustable-flex">
@@ -52,7 +51,8 @@ export default function Home() {
 				<div className="spacer px15" />
 				<Link className="rounded-link normal-link nowrap" to="/mods">More Mods</Link>
 			</div>
-		</div>
-
+		</main>
 	)
 }
+
+export const Head: HeadFC = () => <title>1D6 | Home</title>
