@@ -34,6 +34,15 @@ export default function Home() {
 				</div>
 			</div>
 			<div>
+				<p>
+					1D6 is a framework around <Link to="https://libgdx.com/">LibGDX</Link> that adds support
+					for <Link to="/wiki/docs/mods/jvm/intro">modding</Link>, <Link to="/wiki/docs/mods/jvm/intro/networking">networking</Link>, <Link to="/wiki/docs/mods/jvm/intro/rendering">rendering</Link>, <Link to="/wiki/docs/mods/jvm/intro/assets">easy asset creation</Link>,
+					and <Link to="/wiki/docs/mods/jvm/advanced/data">data handling</Link> all in a free, open-source, community oriented, and fairly small
+					(around 45mb, 60mb with <Link to="http://localhost:3000/wiki/docs/mods/jvm/basemod">Basemod</Link> and <Link to="http://localhost:3000/wiki/docs/mods/jvm/script">2DScript</Link>) package.<br />
+					<br />
+					If you want to read more, check out our <Link to="/about">About / FAQ</Link> and <Link to="/contrib">Contributing</Link> pages.<br />
+					We also have a <Link to="https://discord.gg/sQvmWdpQhR">Discord</Link>, and check out our <Link to="https://github.com/OneDSix">GitHub</Link>.
+				</p>
 				<h2>Newest News</h2>
 				<div className="content adjustable-flex">
 					{

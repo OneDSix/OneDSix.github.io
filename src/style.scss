@@ -1,3 +1,28 @@
+$preferred-dark-grad:
+	linear-gradient(
+		180deg,
+		rgba(64, 64, 64, 0.2) 20%,
+		black
+	),
+	linear-gradient(
+		to left,
+		rgba(113, 151, 255, 0.2) 20%,
+		rgba(255, 204, 63, 0.2)
+	);
+$preferred-light-grad:
+	linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.1) 20%,
+		bisque
+	),
+	linear-gradient(
+		to left,
+		rgba(113, 151, 255, 0.5) 20%,
+		rgba(255, 204, 63, 0.2)
+	);
+$preferred-dark-backg: black;
+$preferred-light-backg: bisque;
+
 html {
 	height: 100%;
 }
@@ -5,7 +30,6 @@ html {
 body {
 	margin: 0%;
 	padding: 0%;
-
 	font-family: "Optimistic Text", "-apple-system", ui-sans-serif, system-ui,
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji", "BlinkMacSystemFont", "Segoe UI",
@@ -13,13 +37,6 @@ body {
 		"Helvetica Neue";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-
-	background: linear-gradient(
-		200deg,
-		rgba(0, 0, 0, 0.6) 20%,
-		rgba(61, 61, 61, 0.6) 100%
-	);
-	background-repeat: no-repeat;
 }
 
 .root {
@@ -110,8 +127,6 @@ main {
 }
 
 dialog {
-	background-color: rgb(61, 61, 61);
-	border-color: rgb(61, 61, 61);
 	border-radius: 10px;
 
 	position: absolute;
@@ -125,11 +140,11 @@ dialog {
 		display: flex;
 
 		.description-box {
-			width: 400px;
+			max-width: 400px;
 			align-items: center;
 
-			span {
-				margin-right: 10px;
+			.flex-row * {
+				margin: 0px 5px;
 			}
 		}
 	}
@@ -208,8 +223,8 @@ dialog {
     top: 0;
     left: 0;
     background-color: #000000AA;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
 }
 
 // Flex Box that automatically shrinks with the screen
@@ -241,29 +256,26 @@ dialog {
 
 @media (prefers-color-scheme: dark) {
 	body {
-		background: linear-gradient(
-			200deg,
-			rgba(43, 22, 6, 0.6) 20%,
-			rgba(22, 14, 8, 0.6) 100%
-		);
-		background-color: black;
+		background: $preferred-dark-grad;
 		background-repeat: no-repeat;
+		background-color: $preferred-dark-backg;
 	}
 
 	* {
 		color: white;
 	}
+
+	dialog {
+		background-color: rgb(61, 61, 61);
+		border-color: rgb(61, 61, 61);
+	}
 }
 
 @media (prefers-color-scheme: light) {
 	body {
-		background: linear-gradient(
-			200deg,
-			rgba(255, 216, 164, 0.6) 20%,
-			rgba(255, 220, 220, 0.6) 100%
-		);
-		background-color: bisque;
+		background: $preferred-light-grad;
 		background-repeat: no-repeat;
+		background-color: $preferred-light-backg;
 	}
 
 	* {
@@ -274,6 +286,14 @@ dialog {
 @media (max-width: 600px) {
 	.adjustable-flex {
 		flex-direction: column;
+	}
+
+	dialog {
+		width: 100%;
+		border-radius: 0%;
+		border-width: 0px;
+		padding: 0%;
+		padding-top: 19px;
 	}
 }
 
